@@ -1,4 +1,0 @@
-test content for git tutorial
-mudando pra testar branch
-testando pelo bash
-testando novamente linha 4
