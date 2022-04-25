@@ -3,20 +3,25 @@ package main
 import "fmt"
 
 var matriz = [][]int{
-	{1, 2, 3, 4},
-	{5, 6, 7, 8},
-	{9, 10, 11, 12},
-	{13, 14, 15, 16},
+	{50, 70, 3, 45},
+	{90, 88, 17, 68},
+	{28, 55, 31, 72},
+	{13, 89, 34, 77},
 }
 
-func multiplicaMatrix(s [][]int) int {
-	for i := 0; i < len(s); i++ {
-		for j := 0; j < len(s); j++ {
-			s[i][j] * s[i][j]
+func multiplicaMatrix(s [][]int) {
+
+	for i := 0; i <= len(s)-1; i++ {
+		for j := 0; j <= len(s)-1; j++ {
+
+			//fmt.Println(s[i][j], "*", s[i][j+1], "=", s[i][j]*s[i][j+1]*s[i][j+2]*s[i][j+3])
+			//fmt.Println("debug:", s[i][j])
+			fmt.Println("debug:", s[i][j], "*", s[i][j+1], "=", s[i][j]*s[i][j+1])
 		}
 	}
+
 }
 func main() {
-	fmt.Println(matriz)
+	multiplicaMatrix(matriz)
 
 }
