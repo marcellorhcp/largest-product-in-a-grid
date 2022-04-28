@@ -30,7 +30,7 @@ func LimitesMatrixUp(mt [][]int) bool {
 
 	for i := 0; i < len(mt); i++ {
 		for j := 0; j < len(mt); j++ {
-			if i == 0 {
+			if i < 3 {
 				possible = false
 			} else {
 				possible = true
@@ -48,7 +48,7 @@ func LimitesMatrixDown(mt [][]int) bool {
 
 	for i := 0; i < len(mt); i++ {
 		for j := 0; j < len(mt); j++ {
-			if i == len(mt)-1 {
+			if i > len(mt)-4 {
 				possible = false
 			} else {
 				possible = true
@@ -66,7 +66,7 @@ func LimitesMatrixRight(mt [][]int) bool {
 
 	for i := 0; i < len(mt); i++ {
 		for j := 0; j < len(mt); j++ {
-			if j == len(mt)-1 {
+			if j > len(mt)-4 {
 				possible = false
 			} else {
 				possible = true
@@ -84,7 +84,7 @@ func LimitesMatrixLeft(mt [][]int) bool {
 
 	for i := 0; i < len(mt); i++ {
 		for j := 0; j < len(mt); j++ {
-			if j == 0 {
+			if j < 3 {
 				possible = false
 			} else {
 				possible = true
