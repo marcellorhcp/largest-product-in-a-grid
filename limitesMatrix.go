@@ -97,7 +97,16 @@ func LimitesMatrixLeft(mt [][]int) bool {
 	return possible
 }
 
+func LargestProductInaGrid(n) {
+	var largestProduct int
+	if n > largestProduct {
+		largestProduct = n
+	}
+	return largestProduct
+}
+
 func main() {
+
 	fmt.Println("-\t-\tCIMA\t-\t-")
 	fmt.Println(LimitesMatrixUp(matriz))
 	fmt.Println("-\t-\tBAIXO\t-\t-")
