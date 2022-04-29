@@ -26,16 +26,25 @@ var matriz = [][]int{
 }
 
 func multiplicaMatrix(s [][]int) {
-
+	var produto int
 	for i := 0; i <= len(s)-1; i++ {
 		for j := 0; j <= len(s)-1; j++ {
-
+			produto = s[i][j]
 			//fmt.Println(s[i][j], "*", s[i][j+1], "=", s[i][j]*s[i][j+1]*s[i][j+2]*s[i][j+3])
 			//fmt.Println("debug:", s[i][j])
 			//fmt.Println("debug:", s[i][j], "*", s[i][j+1], "=", s[i][j]*s[i][j+1])
 			if LimitesMatrixUp(i) {
-				fmt.Println("debug:", s[i][j], "*", s[i][j+1], "=", s[i][j]*s[i][j+1])
+				fmt.Printf("debug: %v * %v = ", produto, s[i-1][j])
+				produto *= s[i-1][j]
+				fmt.Println(produto)
 			}
+			/*
+				if LimitesMatrixDown(i, s) {
+					fmt.Printf("debug: %v * %v = ", produto, s[i+1][j])
+					produto *= s[i+1][j]
+					fmt.Println(produto)
+				}
+			*/
 		}
 	}
 

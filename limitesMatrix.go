@@ -40,21 +40,18 @@ func LimitesMatrixUp(i int) bool {
 
 	return possible
 }
-func LimitesMatrixDown(mt [][]int) bool {
+func LimitesMatrixDown(i int, mt [][]int) bool {
 	var possible bool
 
-	for i := 0; i < len(mt); i++ {
-		for j := 0; j < len(mt); j++ {
-			if i > len(mt)-4 {
-				possible = false
-			} else {
-				possible = true
-			}
-			if possible == false {
-				fmt.Println("debug:", mt[i][j], ":", possible)
-			}
-		}
+	if i > len(mt)-4 {
+		possible = false
+	} else {
+		possible = true
 	}
+	if possible == false {
+		//fmt.Println("debug:", mt[i][j], ":", possible)
+	}
+
 	return possible
 }
 
