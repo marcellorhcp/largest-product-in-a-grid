@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 /*
 import "fmt"
 
@@ -30,75 +28,44 @@ var matriz = [][]int{
 */
 func LimitesMatrixUp(i int) bool {
 	var possible bool
-
 	if i < 3 {
 		possible = false
 	} else {
 		possible = true
-
 	}
-
 	return possible
 }
-func LimitesMatrixDown(i int, mt [][]int) bool {
+func LimitesMatrixDown(i int, lengthMatrix int) bool {
 	var possible bool
-
-	if i > len(mt)-4 {
+	if i > lengthMatrix-4 {
 		possible = false
 	} else {
 		possible = true
 	}
-	if possible == false {
-		//fmt.Println("debug:", mt[i][j], ":", possible)
-	}
-
 	return possible
 }
 
-func LimitesMatrixRight(mt [][]int) bool {
+func LimitesMatrixRight(j int, lengthMatrix int) bool {
 	var possible bool
-
-	for i := 0; i < len(mt); i++ {
-		for j := 0; j < len(mt); j++ {
-			if j > len(mt)-4 {
-				possible = false
-			} else {
-				possible = true
-			}
-			if possible == false {
-				fmt.Println("debug:", mt[i][j], ":", possible)
-			}
-		}
+	if j > lengthMatrix-4 {
+		possible = false
+	} else {
+		possible = true
 	}
 	return possible
 }
 
-func LimitesMatrixLeft(mt [][]int) bool {
+func LimitesMatrixLeft(j int) bool {
 	var possible bool
-
-	for i := 0; i < len(mt); i++ {
-		for j := 0; j < len(mt); j++ {
-			if j < 3 {
-				possible = false
-			} else {
-				possible = true
-			}
-			if possible == false {
-				fmt.Println("debug:", mt[i][j], ":", possible)
-			}
-		}
+	if j < 3 {
+		possible = false
+	} else {
+		possible = true
 	}
 	return possible
 }
 
 /*
-func LargestProductInaGrid(n) {
-	var largestProduct int
-	if n > largestProduct {
-		largestProduct = n
-	}
-	return largestProduct
-}
 
 func main() {
 
