@@ -35,8 +35,8 @@ func multiplicaMatrix(s [][]int) {
 	var produtoDiagonalDownRight int
 	var produtoDiagonalDownLeft int
 	var length int = len(s)
-	for i := 0; i <= len(s)-1; i++ {
 
+	for i := 0; i <= len(s)-1; i++ {
 		for j := 0; j <= len(s)-1; j++ {
 
 			produtoUp = s[i][j]
@@ -48,62 +48,65 @@ func multiplicaMatrix(s [][]int) {
 			produtoDiagonalDownRight = s[i][j]
 			produtoDiagonalDownLeft = s[i][j]
 
-			//fmt.Println(s[i][j], "*", s[i][j+1], "=", s[i][j]*s[i][j+1]*s[i][j+2]*s[i][j+3])
-			//fmt.Println("debug:", s[i][j])
-			//fmt.Println("debug:", s[i][j], "*", s[i][j+1], "=", s[i][j]*s[i][j+1])
-
 			if LimitesMatrixUp(i) {
 				fmt.Printf("debug UP: %v * %v * %v * %v = ", produtoUp, s[i-1][j], s[i-2][j], s[i-3][j])
 				produtoUp = produtoUp * s[i-1][j] * s[i-2][j] * s[i-3][j]
 				fmt.Println(produtoUp)
+				LargestProductInaGrid(produtoUp)
 			}
 
 			if LimitesMatrixDown(i, length) {
 				fmt.Printf("debug DOWN: %v * %v * %v * %v = ", produtoDown, s[i+1][j], s[i+2][j], s[i+3][j])
 				produtoDown = produtoDown * s[i+1][j] * s[i+2][j] * s[i+3][j]
 				fmt.Println(produtoDown)
-
+				LargestProductInaGrid(produtoDown)
 			}
 
 			if LimitesMatrixRight(j, length) {
 				fmt.Printf("debug RIGHT: %v * %v * %v * %v = ", produtoRight, s[i][j+1], s[i][j+2], s[i][j+3])
 				produtoRight = produtoRight * s[i][j+1] * s[i][j+2] * s[i][j+3]
 				fmt.Println(produtoRight)
+				LargestProductInaGrid(produtoRight)
 			}
+
 			if LimitesMatrixLeft(j) {
 				fmt.Printf("debug LEFT: %v * %v * %v * %v = ", produtoLeft, s[i][j-1], s[i][j-2], s[i][j-3])
 				produtoLeft = produtoLeft * s[i][j-1] * s[i][j-2] * s[i][j-3]
 				fmt.Println(produtoLeft)
+				LargestProductInaGrid(produtoLeft)
 			}
 
 			if LimitesMatrixUp(i) && LimitesMatrixRight(j, length) {
 				fmt.Printf("debug UP_RIGHT_DIAGONAL: %v * %v * %v * %v = ", produtoDiagonalUpRight, s[i-1][j+1], s[i-2][j+2], s[i-3][j+3])
 				produtoDiagonalUpRight = produtoDiagonalUpRight * s[i-1][j+1] * s[i-2][j+2] * s[i-3][j+3]
 				fmt.Println(produtoDiagonalUpRight)
+				LargestProductInaGrid(produtoDiagonalUpRight)
 			}
 
 			if LimitesMatrixUp(i) && LimitesMatrixLeft(j) {
 				fmt.Printf("debug UP_LEFT_DIAGONAL: %v * %v * %v * %v = ", produtoDiagonalUpLeft, s[i-1][j-1], s[i-2][j-2], s[i-3][j-3])
 				produtoDiagonalUpLeft = produtoDiagonalUpLeft * s[i-1][j-1] * s[i-2][j-2] * s[i-3][j-3]
 				fmt.Println(produtoDiagonalUpLeft)
+				LargestProductInaGrid(produtoDiagonalUpLeft)
 			}
 
 			if LimitesMatrixDown(i, length) && LimitesMatrixRight(j, length) {
 				fmt.Printf("debug DOWN_RIGHT_DIAGONAL: %v * %v * %v * %v = ", produtoDiagonalDownRight, s[i+1][j+1], s[i+2][j+2], s[i+3][j+3])
 				produtoDiagonalDownRight = produtoDiagonalDownRight * s[i+1][j+1] * s[i+2][j+2] * s[i+3][j+3]
 				fmt.Println(produtoDiagonalDownRight)
+				LargestProductInaGrid(produtoDiagonalDownRight)
 			}
 			if LimitesMatrixDown(i, length) && LimitesMatrixLeft(j) {
 				fmt.Printf("debug DOWN_LEFT_DIAGONAL: %v * %v * %v * %v = ", produtoDiagonalDownLeft, s[i+1][j-1], s[i+2][j-2], s[i+3][j-3])
 				produtoDiagonalDownLeft = produtoDiagonalDownLeft * s[i+1][j-1] * s[i+2][j-2] * s[i+3][j-3]
 				fmt.Println(produtoDiagonalDownLeft)
+				LargestProductInaGrid(produtoDiagonalDownLeft)
 			}
-
 		}
 	}
-
 }
+
 func main() {
 	multiplicaMatrix(matriz)
-
+	fmt.Println("\nO maior produto da matriz é:", largestProduct)
 }
