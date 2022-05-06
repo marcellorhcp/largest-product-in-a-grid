@@ -27,42 +27,18 @@ var matriz = [][]int{
 }
 */
 func LimitesMatrixUp(i int) bool {
-	var possible bool
-	if i < 3 {
-		possible = false
-	} else {
-		possible = true
-	}
-	return possible
+	return i > 3
 }
 func LimitesMatrixDown(i int, lengthMatrix int) bool {
-	var possible bool
-	if i > lengthMatrix-4 {
-		possible = false
-	} else {
-		possible = true
-	}
-	return possible
+	return i < lengthMatrix-4
 }
 
 func LimitesMatrixRight(j int, lengthMatrix int) bool {
-	var possible bool
-	if j > lengthMatrix-4 {
-		possible = false
-	} else {
-		possible = true
-	}
-	return possible
+	return j < lengthMatrix-4
 }
 
 func LimitesMatrixLeft(j int) bool {
-	var possible bool
-	if j < 3 {
-		possible = false
-	} else {
-		possible = true
-	}
-	return possible
+	return j > 3
 }
 
 /*
